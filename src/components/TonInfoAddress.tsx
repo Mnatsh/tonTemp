@@ -2,50 +2,56 @@ import { useState } from "react";
 import styled from "styled-components";
 import { Address, toNano } from "ton";
 import { useTonConnect } from "../hooks/useTonConnect";
-import { Card, FlexBoxCol, FlexBoxRow, Button, Input } from "./styled/styled";
+import { useInfoAdress } from "../hooks/useInfoAdress";
+import { Card, FlexBoxCol, Ellipsis, FlexBoxRow, Button, Input } from "./styled/styled";
+
 
 export function TonInfoAddress() {
   const { sender, connected } = useTonConnect();
+  const { valueCounter, address, fetchInfoAddress } = useInfoAdress();
 
-  const [tonAmount, setTonAmount] = useState("0.01");
-  const [tonRecipient, setTonRecipient] = useState(
-    "EQA01D1VQtR8-jWxRzbKkGAZtRhmvCJq6ojdShlENfqBl1LE"
-  );
+  const [tonAmount, setTonAmount] = useState("1");
+  const [addressQuery, setTonRecipient] = useState("EQA01D1VQtR8-jWxRzbKkGAZtRhmvCJq6ojdShlENfqBl1LE");
+  const [valueCont, setValueCont] = useState("never");
+
+
+  async function info(){
+    let valueCoun = await fetchInfoAddress();
+      return valueCoun;
+
+  }
 
   return (
     <Card>
       <FlexBoxCol>
-        <h3>Transfer TON</h3>
+        <h3>Информация об адресе TON</h3>
         <FlexBoxRow>
-          <label>Amount </label>
+          <label>Введите адрес </label>
           <Input
             style={{ marginRight: 8 }}
-            type="number"
-            value={tonAmount}
-            onChange={(e) => setTonAmount(e.target.value)}
-          ></Input>
-        </FlexBoxRow>
-        <FlexBoxRow>
-          <label>To </label>
-          <Input
-            style={{ marginRight: 8 }}
-            value={tonRecipient}
+            value={addressQuery}
             onChange={(e) => setTonRecipient(e.target.value)}
-          ></Input>
-        </FlexBoxRow>
-        <Button
+          ></Input>        
+          <Button  //прописать обработку нажатия на кнопку
           disabled={!connected}
-          style={{ marginTop: 18 }}
+          style={{ marginTop: 1 }}
           onClick={async () => {
-            sender.send({
-              to: Address.parse(tonRecipient),
-              value: toNano(tonAmount),
-            });
-          }}
-        >
+            //valueCounter = await fetchInfoAddress();
+            setValueCont(await fetchInfoAddress());
+          } 
+          }
+          >
           Просмотр информации об адресе
-        </Button>
+          </Button>
+        </FlexBoxRow>
+        <FlexBoxRow>
+          <label>Баланс: {tonAmount}</label>
+          <b>Значение счетчика: </b>
+          {"шаг " + tonAmount + ": " + valueCont}
+          
+        </FlexBoxRow>
       </FlexBoxCol>
     </Card>
   );
 }
+            //<Ellipsis>{tonAmount}</Ellipsis></label>

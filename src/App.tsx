@@ -3,6 +3,7 @@ import { TonConnectButton } from "@tonconnect/ui-react";
 import { Counter } from "./components/Counter";
 import { Jetton } from "./components/Jetton";
 import { TransferTon } from "./components/TransferTon";
+import { TonInfoAddress } from "./components/TonInfoAddress";
 import styled from "styled-components";
 import { Button, FlexBoxCol, FlexBoxRow } from "./components/styled/styled";
 import { useTonConnect } from "./hooks/useTonConnect";
@@ -22,7 +23,7 @@ const StyledApp = styled.div`
 `;
 
 const AppContainer = styled.div`
-  max-width: 900px;
+  max-width: 1100px;
   margin: 0 auto;
 `;
 
@@ -43,9 +44,11 @@ function App() {
                 : "N/A"}
             </Button>
           </FlexBoxRow>
-          <Counter />
+          <TonInfoAddress />
+          
+
           <TransferTon />
-          <Jetton />
+
         </FlexBoxCol>
       </AppContainer>
     </StyledApp>
@@ -53,3 +56,5 @@ function App() {
 }
 
 export default App;
+   //           <Counter />
+   //       <Jetton />  

@@ -22,7 +22,7 @@ export function Counter() {
         <FlexBoxCol>
           <h3>Counter</h3>
           <FlexBoxRow>
-            <b>Address</b>
+            <b>Адрес контаркта Counter: </b>
             <Ellipsis>{address}</Ellipsis>
           </FlexBoxRow>
           <FlexBoxRow>

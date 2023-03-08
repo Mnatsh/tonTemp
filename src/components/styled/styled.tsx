@@ -39,12 +39,13 @@ export const Ellipsis = styled.div`
   text-overflow: ellipsis;
   overflow: hidden;
   white-space: nowrap;
+  background-color: silver;
 `;
 
 export const Input = styled("input")`
   padding: 10px 20px;
   border-radius: 10px;
-  width: 100%;
+  width: 50%;
   border: 1px solid #c2c2c2;
 
   @media (prefers-color-scheme: dark) {

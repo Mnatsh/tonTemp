@@ -16,7 +16,7 @@ export function useCounterContract() {
     const contract = new Counter(
       Address.parse(
         network === CHAIN.MAINNET
-          ? "EQBPEDbGdwaLv1DKntg9r6SjFIVplSaSJoJ-TVLe_2rqBOmH"
+          ? "EQBnl39OpR9QKvbHQweqDcUY50ciPZyn5Cd7Mx3ehUuSRium"
           : "EQBYLTm4nsvoqJRvs_L-IGNKwWs5RKe19HBK_lFadf19FUfb"
       ) // replace with your address from tutorial 2 step 8
     );
@@ -29,7 +29,7 @@ export function useCounterContract() {
       if (!counterContract) return null;
       return (await counterContract!.getCounter()).toString();
     },
-    { refetchInterval: 3000 }
+    { refetchInterval: 13000 }
   );
 
   return {

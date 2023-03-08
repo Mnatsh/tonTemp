@@ -9,7 +9,7 @@ export function TransferTon() {
 
   const [tonAmount, setTonAmount] = useState("0.01");
   const [tonRecipient, setTonRecipient] = useState(
-    "EQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAM9c"
+    "EQA01D1VQtR8-jWxRzbKkGAZtRhmvCJq6ojdShlENfqBl1LE"
   );
 
   return (
@@ -43,7 +43,7 @@ export function TransferTon() {
             });
           }}
         >
-          Transfer
+          Отправить
         </Button>
       </FlexBoxCol>
     </Card>
