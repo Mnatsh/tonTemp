@@ -14,7 +14,7 @@ The project is highly-opinionated, and there are many other alternate routes it 
 # What does this repo contain?
 * A react-based TWA-ready app, interacting with TON
 * Github actions set to deploy app to github pages
-* A script to connect a telegram bot to the deployed app
+* Скрипт для подключения телеграмм-бота к развернутому приложению
 
 # How to use
 1. Create a template from this repo with the "Use this template" button
