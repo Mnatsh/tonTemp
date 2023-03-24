@@ -8,11 +8,11 @@ import {
   beginCell,
 } from "ton-core";
 
-export default class CounterInfo implements Contract {
+export default class SaleInfo implements Contract {
 
-  async getCounter(provider: ContractProvider) {
-    const { stack } = await provider.get("counter", []);
-    return stack.readBigNumber();
+  async getSaleInfo(provider: ContractProvider) {
+    const { stack } = await provider.get("get_sale_data", []);
+    return stack;
   }
 
   constructor(
